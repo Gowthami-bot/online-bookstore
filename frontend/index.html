@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Bookstore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Header / Navigation ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6C16.5 3.5 11 2.5 4 3v20c7 -0.5 12.5 0.5 16 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 6c3.5 -2.5 9 -3.5 16 -3v20c-7 -0.5 -12.5 0.5 -16 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 6v23" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="logo-text">Bookstore</span></a>
+
+      <form class="search-form" id="searchForm">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search books by title..."
+          autocomplete="off"
+        >
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="cart.html" class="nav-link">
+          Cart
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main Content ===== -->
+  <main class="main-content">
+
+    <section class="hero">
+      <h1>Find your next favorite book</h1>
+      <p>Browse our collection, search by title, and check out in a few clicks.</p>
+    </section>
+
+    <section class="book-list-section">
+      <h2 class="section-title">All Books</h2>
+
+      <!-- Loading state (hidden by default, used later when JS fetches data) -->
+      <p class="state-message loading-message" id="loadingMessage" hidden>Loading books...</p>
+
+      <!-- Empty / no-results state (hidden by default) -->
+      <p class="state-message empty-message" id="emptyMessage" hidden>No books match your search.</p>
+
+      <!-- Static book grid for Phase 1. Phase 3 will make this dynamic via JS. -->
+      <div class="book-grid" id="bookGrid">
+
+        <article class="book-card" data-id="1">
+          <a href="book.html?id=1" class="book-card-link">
+            <div class="book-cover book-cover--1"></div>
+            <h3 class="book-title">The Pragmatic Programmer</h3>
+            <p class="book-author">David Thomas &amp; Andrew Hunt</p>
+            <p class="book-price">$32.99</p>
+          </a>
+          <button class="btn btn-add-cart" data-id="1">Add to Cart</button>
+        </article>
+
+        <article class="book-card" data-id="2">
+          <a href="book.html?id=2" class="book-card-link">
+            <div class="book-cover book-cover--3"></div>
+            <h3 class="book-title">Clean Code</h3>
+            <p class="book-author">Robert C. Martin</p>
+            <p class="book-price">$29.50</p>
+          </a>
+          <button class="btn btn-add-cart" data-id="2">Add to Cart</button>
+        </article>
+
+        <article class="book-card" data-id="3">
+          <a href="book.html?id=3" class="book-card-link">
+            <div class="book-cover book-cover--2"></div>
+            <h3 class="book-title">Effective Java</h3>
+            <p class="book-author">Joshua Bloch</p>
+            <p class="book-price">$41.25</p>
+          </a>
+          <button class="btn btn-add-cart" data-id="3">Add to Cart</button>
+        </article>
+
+        <article class="book-card" data-id="4">
+          <a href="book.html?id=4" class="book-card-link">
+            <div class="book-cover book-cover--5"></div>
+            <h3 class="book-title">Spring in Action</h3>
+            <p class="book-author">Craig Walls</p>
+            <p class="book-price">$38.00</p>
+          </a>
+          <button class="btn btn-add-cart" data-id="4">Add to Cart</button>
+        </article>
+
+        <article class="book-card" data-id="5">
+          <a href="book.html?id=5" class="book-card-link">
+            <div class="book-cover book-cover--4"></div>
+            <h3 class="book-title">Designing Data-Intensive Applications</h3>
+            <p class="book-author">Martin Kleppmann</p>
+            <p class="book-price">$45.99</p>
+          </a>
+          <button class="btn btn-add-cart" data-id="5">Add to Cart</button>
+        </article>
+
+        <article class="book-card" data-id="6">
+          <a href="book.html?id=6" class="book-card-link">
+            <div class="book-cover book-cover--6"></div>
+            <h3 class="book-title">Head First Design Patterns</h3>
+            <p class="book-author">Eric Freeman &amp; Elisabeth Robson</p>
+            <p class="book-price">$36.75</p>
+          </a>
+          <button class="btn btn-add-cart" data-id="6">Add to Cart</button>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Online Bookstore — built for learning Spring Boot &amp; REST APIs.</p>
+  </footer>
+
+  <script src="js/books-data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

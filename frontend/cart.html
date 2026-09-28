@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — Online Bookstore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6C16.5 3.5 11 2.5 4 3v20c7 -0.5 12.5 0.5 16 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 6c3.5 -2.5 9 -3.5 16 -3v20c-7 -0.5 -12.5 0.5 -16 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 6v23" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="logo-text">Bookstore</span></a>
+
+      <form class="search-form" id="searchForm">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search books by title..." autocomplete="off">
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="cart.html" class="nav-link active">
+          Cart
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1 class="section-title">Your Cart</h1>
+
+    <!-- Empty cart state -->
+    <div class="empty-cart-state" id="emptyCartState" hidden>
+      <p>Your cart is empty.</p>
+      <a href="index.html" class="btn">Browse Books</a>
+    </div>
+
+    <!-- Cart items will be listed here by JS in Phase 3 -->
+    <!-- Cart items rendered dynamically by cart.js -->
+    <div class="cart-items" id="cartItems"></div>
+
+    <section class="cart-summary" id="cartSummary">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$115.49</span>
+      </div>
+      <div class="cart-summary-row cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal">$115.49</span>
+      </div>
+      <a href="checkout.html" class="btn btn-large btn-checkout">Proceed to Checkout</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Online Bookstore — built for learning Spring Boot &amp; REST APIs.</p>
+  </footer>
+
+  <script src="js/books-data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

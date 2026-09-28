@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Online Bookstore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6C16.5 3.5 11 2.5 4 3v20c7 -0.5 12.5 0.5 16 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 6c3.5 -2.5 9 -3.5 16 -3v20c-7 -0.5 -12.5 0.5 -16 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 6v23" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="logo-text">Bookstore</span></a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="cart.html" class="nav-link">
+          Cart
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1 class="section-title">Checkout</h1>
+
+    <div class="checkout-layout">
+
+      <!-- Checkout form -->
+      <form class="checkout-form" id="checkoutForm" novalidate>
+        <h2>Shipping Details</h2>
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required>
+          <span class="form-error" id="fullNameError" hidden>Please enter your full name.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <span class="form-error" id="emailError" hidden>Please enter a valid email.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Shipping Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+          <span class="form-error" id="addressError" hidden>Please enter your address.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" required>
+          <span class="form-error" id="cityError" hidden>Please enter your city.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="zip">ZIP / Postal Code</label>
+          <input type="text" id="zip" name="zip" required>
+          <span class="form-error" id="zipError" hidden>Please enter a valid ZIP code.</span>
+        </div>
+
+        <button type="submit" class="btn btn-large btn-checkout">Place Order</button>
+      </form>
+
+      <!-- Order summary (rendered dynamically by checkout.js) -->
+      <aside class="order-summary" id="orderSummary">
+        <h2>Order Summary</h2>
+        <p style="color: var(--color-ink-soft); font-style: italic;">Loading order summary...</p>
+      </aside>
+    </div>
+
+    <!-- Order confirmation (hidden until form submits successfully) -->
+    <section class="order-confirmation" id="orderConfirmation" hidden>
+      <h2>Order confirmed</h2>
+      <p>Thank you for your purchase. A confirmation has been sent to your email.</p>
+      <p class="order-id">Order ID: <span id="orderIdValue">—</span></p>
+      <a href="index.html" class="btn">Continue Shopping</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Online Bookstore — built for learning Spring Boot &amp; REST APIs.</p>
+  </footer>
+
+  <script src="js/books-data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
